@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "import/no-cycle": "error",
+    "import/no-unassigned-import": ["error", { "allow": ["dotenv/config", "**/*.css"] }],
+    "typescript/no-explicit-any": "error",
+    "no-unused-vars": "error",
+    "no-underscore-dangle": "off",
+    "oxc/no-async-endpoint-handlers": "off"
+  },
+  "ignorePatterns": ["**/dist/**"]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "secure-notes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "seed": "pnpm --filter @notes/api seed",
+    "explain": "pnpm --filter @notes/api explain",
+    "db:sync-indexes": "pnpm --filter @notes/api db:sync-indexes",
+    "lint": "oxlint apps --deny-warnings",
+    "format": "prettier --write apps \"*.json\"",
+    "format:check": "prettier --check apps \"*.json\"",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm build"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.18.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.18.0",
+  "devDependencies": {
+    "oxlint": "^1.93.0",
+    "prettier": "^3.9.10"
+  }
+}

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: secure-notes
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm --filter @notes/api start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

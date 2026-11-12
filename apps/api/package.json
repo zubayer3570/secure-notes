@@ -1,0 +1,31 @@
+{
+  "name": "@notes/api",
+  "description": "Secure note-taking REST API (Express, MongoDB/Mongoose, JWT)",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/src/server.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx scripts/seed.ts",
+    "db:sync-indexes": "tsx scripts/sync-indexes.ts",
+    "explain": "tsx scripts/explain.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.4",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.12.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}
