@@ -1,4 +1,5 @@
 import { api } from './api';
+import { PasswordField } from './PasswordField';
 import { useSubmit } from './session';
 import type { AuthResult } from './types';
 import { formValues, userPayload } from './utils';
@@ -23,14 +24,7 @@ export function AuthView({ onSignIn }: { onSignIn: (result: AuthResult) => void 
         <form onSubmit={register} data-testid="register-form">
           <input name="name" placeholder="Name" required data-testid="register-name" />
           <input name="email" type="email" placeholder="Email" required data-testid="register-email" />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password (min 8)"
-            minLength={8}
-            required
-            data-testid="register-password"
-          />
+          <PasswordField prefix="register" placeholder="Password (min 10, mixed case, number, symbol)" required />
           <input name="interests" placeholder="Interests, comma separated" data-testid="register-interests" />
           <button data-testid="register-submit">Register</button>
         </form>

@@ -206,7 +206,7 @@ Both lookups use `{ author: 1, _id: -1 }`: the first for one sorted page, the se
 ## Security
 
 - bcrypt with cost 12, the hash is `select: false` and removed from JSON
-- passwords capped at 72 chars (bcrypt ignores the rest)
+- passwords need 10+ characters with upper and lower case letters, a number and a symbol, checked on register, user create and every password change. Max 72 bytes since bcrypt ignores the rest
 - unknown emails still run a bcrypt compare, so login timing doesn't leak which emails exist
 - JWT verify pinned to `HS256`, server won't start with a `JWT_SECRET` under 32 chars
 - `/api/auth/*` rate limited to 50 requests per 15 min per IP

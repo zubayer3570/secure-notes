@@ -1,4 +1,5 @@
 import { api } from '../api';
+import { PasswordField } from '../PasswordField';
 import { useMe, useSubmit } from '../session';
 import type { User } from '../types';
 import { userPayload } from '../utils';
@@ -19,9 +20,7 @@ export function ProfileTab({ onSaved }: { onSaved: (user: User) => void }) {
           Interests (comma separated){' '}
           <input name="interests" defaultValue={me.interests.join(', ')} data-testid="profile-interests" />
         </label>
-        <label>
-          New password (optional) <input name="password" type="password" minLength={8} data-testid="profile-password" />
-        </label>
+        <PasswordField prefix="profile" label="New password (optional)" />
         <button data-testid="profile-save">Update</button>
       </form>
     </section>

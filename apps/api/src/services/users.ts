@@ -1,11 +1,11 @@
 import { Types } from 'mongoose';
 import { z } from 'zod';
-import { hashPassword } from '../lib/password.js';
+import { hashPassword, strongPassword } from '../lib/password.js';
 import { ROLES, User } from '../models/user.js';
 
 const name = z.string().trim().min(1).max(100);
 const email = z.email().trim().toLowerCase().max(254);
-const password = z.string().min(8).max(72);
+const password = strongPassword;
 const interests = z.array(z.string().trim().min(1).max(50)).max(50);
 const role = z.enum(ROLES);
 

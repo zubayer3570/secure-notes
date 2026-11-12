@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import { z } from 'zod';
+import { strongPassword } from './lib/password.js';
 
 const env = z
   .object({
@@ -8,7 +9,7 @@ const env = z
     JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters'),
     JWT_EXPIRES_IN: z.string().default('1h'),
     ADMIN_EMAIL: z.email().optional(),
-    ADMIN_PASSWORD: z.string().min(8).optional(),
+    ADMIN_PASSWORD: strongPassword.optional(),
   })
   .parse(process.env);
 

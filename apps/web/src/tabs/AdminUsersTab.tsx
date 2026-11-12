@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { api } from '../api';
 import { PagedList, usePagedList } from '../PagedList';
+import { PasswordField } from '../PasswordField';
 import { useMe, useRun, useSubmit } from '../session';
 import type { User } from '../types';
 import { userPayload } from '../utils';
@@ -41,12 +42,10 @@ export function AdminUsersTab({ onViewNotes }: { onViewNotes: (user: User) => vo
             defaultValue={editing?.email}
             data-testid="user-email"
           />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password (required on create)"
-            minLength={8}
-            data-testid="user-password"
+          <PasswordField
+            prefix="user"
+            placeholder={editing ? 'New password (optional)' : 'Password (min 10, mixed case, number, symbol)'}
+            required={!editing}
           />
           <input
             name="interests"
