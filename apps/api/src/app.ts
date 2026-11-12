@@ -15,6 +15,7 @@ export function createApp() {
   app.set('trust proxy', 1);
   app.use(express.json({ limit: '100kb' }));
 
+  app.get('/api', (_req, res) => res.json({ name: 'secure-notes-api', status: 'ok' }));
   app.use('/api/auth', authRouter);
   app.use('/api/users', authenticate, usersRouter);
   app.use('/api/notes', authenticate, notesRouter);

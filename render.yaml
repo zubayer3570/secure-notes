@@ -5,7 +5,7 @@ services:
     plan: free
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
     startCommand: pnpm --filter @notes/api start
-    healthCheckPath: /
+    healthCheckPath: /api
     envVars:
       - key: NODE_VERSION
         value: '24'
